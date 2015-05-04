@@ -16,6 +16,7 @@
     "mocha-lcov-reporter": "0.0.2"
   },
   "dependencies": {
-    "is": "git://github.com/utilise/is"
+    "is": "git://github.com/utilise/is",
+    "to": "git+ssh://git@github.com:utilise/to"
   }
 }
