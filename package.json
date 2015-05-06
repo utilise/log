@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "is": "git://github.com/utilise/is",
-    "to": "git+ssh://git@github.com:utilise/to"
+    "to": "git://github.com/utilise/to"
   }
 }
