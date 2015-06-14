@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "is": "git://github.com/utilise/is",
+    "owner": "git://github.com/utilise/owner",
     "to": "git://github.com/utilise/to"
   }
 }
