@@ -16,8 +16,8 @@
     "mocha-lcov-reporter": "0.0.2"
   },
   "dependencies": {
-    "is": "git://github.com/utilise/is",
-    "owner": "git://github.com/utilise/owner",
-    "to": "git://github.com/utilise/to"
+    "is": "git+https://github.com/utilise/is.git",
+    "owner": "git+https://github.com/utilise/owner.git",
+    "to": "git+https://github.com/utilise/to.git"
   }
 }
