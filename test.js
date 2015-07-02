@@ -1,4 +1,5 @@
 var expect = require('chai').expect
+  , client = require('client')
   , owner = require('owner')
   , log = require('./')
   , to = require('to')
@@ -10,27 +11,29 @@ describe('log', function() {
   })
 
   it('should do nothing if no console', function() {
-    var realLog = owner.console.log
-      , realConsole = owner.console
-
+    var realConsole = owner.console
     delete owner.console
     expect(log('foo')('bar')).to.equal('bar')
     owner.console = realConsole
   })
 
   it('should loop over arrays compactly', function() {
+    if (!owner.console) return
     var realLog = owner.console.log
       , realConsole = owner.console
       , result
 
     delete owner.console
-    owner.console = { log: function(){ result = to.arr(arguments).pop(); realLog.apply(this, arguments) } }
+    owner.console = { log: function(){ 
+      result = to.arr(arguments).pop(); 
+      realLog.apply && realLog.apply(realConsole, arguments) } }
     ;[1,2,3].map(log('foo'))
     expect(result).to.equal(3)
     owner.console = realConsole
   })
 
-  it('should print in color if exists', function() {
+  !client && it('should print in color if exists', function() {
+    if (!owner.console) return
     var prefix = 'foo'
       , realGrey = String.prototype.grey
       , realLog = owner.console.log
@@ -38,7 +41,9 @@ describe('log', function() {
       , result
 
     delete owner.console
-    owner.console = { log: function(){ result = to.arr(arguments).shift(); realLog.apply(this, arguments) } }
+    owner.console = { log: function(){ 
+      result = to.arr(arguments).shift(); 
+      realLog.apply && realLog.apply(realConsole, arguments) } }
     String.prototype.grey = 'baz'
 
     expect(log(prefix)('bar')).to.equal('bar')
