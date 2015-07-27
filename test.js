@@ -1,8 +1,8 @@
 var expect = require('chai').expect
-  , client = require('client')
-  , owner = require('owner')
+  , client = require('utilise.client')
+  , owner = require('utilise.owner')
   , log = require('./')
-  , to = require('to')
+  , to = require('utilise.to')
 
 describe('log', function() {
   it('should log value untouched and return it', function() {
